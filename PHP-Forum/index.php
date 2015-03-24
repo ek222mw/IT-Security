@@ -12,8 +12,8 @@
 
 	require_once("src/MasterController.php");
 	
-	$c = new LoginController();
-	$htmlBody = $c->doHTMLBody();
+	$c = new MasterController();
+	//$htmlBody = $c->doHTMLBody();
 	
 	
 ?>

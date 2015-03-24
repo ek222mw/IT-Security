@@ -15,9 +15,25 @@ require_once 'common/HTMLView.php';
 		
 		public function didUserPressTopic()
 		{
-			return isset($_GET['topic']);
+			return isset($_GET['topics']);
 		}
 		
+		public function showTopics(){
+				$HTMLbody = "
+					
+					<br><a href='?create'>Create new topic</a>
+					
+					<h2>Forum</h2>
+					<p>Forum topic 1</p>
+					<p>Forum topic 2</p>
+					<p>Forum topic 3</p>
+					
+					<p><a href='?logout'>Logga ut</a></p>
+				
+				";
+				
+				$this->echoHTML($HTMLbody);
+		}
 		
 		//Visar en hel forumtråd
 		public function ShowForumPost($topicID){

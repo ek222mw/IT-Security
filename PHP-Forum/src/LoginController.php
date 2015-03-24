@@ -43,10 +43,10 @@
 			{
 				
 				
-				if($this->forumView->didUserPressCreateNewTopic() && $this->model->checkLoginStatus()){
-					$this->doCreateNewTopic();
+				//if($this->forumView->didUserPressCreateNewTopic() && $this->model->checkLoginStatus()){
+					//$this->doCreateNewTopic();
 					//die();
-				}
+				//}
 				
 				
 				// Ifall anv�ndaren tryckt p� "Logga in" och inte redan �r inloggad...
@@ -69,11 +69,11 @@
 			}
 			if($this->model->checkLoginStatus() && $this->view->searchForCookies())
 			{
+				echo "Detta körs";
 				$this->view->showLoginPage();
 			}
-			if($this->model->checkLoginStatus() && !$this->view->searchForCookies() && !$this->forumView->didUserPressCreateNewTopic())
+			if($this->model->checkLoginStatus() && !$this->view->searchForCookies() && !$this->forumView->didUserPressCreateNewTopic() && !$this->forumView->didUserPressTopic())
 			{
-				echo "12345";
 				$this->view->showLoginPage();
 			}
 			
@@ -170,6 +170,9 @@
 		}
 		public function doCreateNewTopic(){
 			$this->forumView->showNewTopicForm();
+		}
+		public function doShowTopic(){
+			$this->forumView->showTopics();
 		}
 		
 		
