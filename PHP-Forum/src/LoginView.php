@@ -33,12 +33,12 @@ require_once 'common/HTMLView.php';
 			return isset($_GET['register']);
 			
 		}
-		public function didUserPressCreateNewTopic()
-		{
-			 
-			return isset($_GET['create']);
-			
-		}
+		// public function didUserPressCreateNewTopic()
+		// {
+// 			 
+			// return isset($_GET['create']);
+// 			
+		// }
 		public function didUserPressCreateUser(){
 			if(isset($_POST['createuserbutton']))
 			{
@@ -68,26 +68,26 @@ require_once 'common/HTMLView.php';
 			return false;
 		}
 		
-		public function showNewTopicForm(){
-			//echo "test";
-			
-				$HTMLbody = "
-				<form method=post >
-						<fieldset>
-							<legend>Create a new topic</legend>
-							$this->message<br>
-							Topic name: <input type='text' name='topicName'><br>
-							<textarea type='text' name='topicText'></textarea>
-						
-							Skicka: <input type='submit' name='sendNewTopic'  value='Send'>
-						</fieldset>
-					</form>
-				
-				";
-			
-			$this->echoHTML($HTMLbody);
-		}
-		
+		// public function showNewTopicForm(){
+			// //echo "test";
+// 			
+				// $HTMLbody = "
+				// <form method=post >
+						// <fieldset>
+							// <legend>Create a new topic</legend>
+							// $this->message<br>
+							// Topic name: <input type='text' name='topicName'><br>
+							// <textarea type='text' name='topicText'></textarea>
+// 						
+							// Skicka: <input type='submit' name='sendNewTopic'  value='Send'>
+						// </fieldset>
+					// </form>
+// 				
+				// ";
+// 			
+			// $this->echoHTML($HTMLbody);
+		// }
+// 		
 		
 		// S�tter body-inneh�llet.
 		public function showLoginPage()

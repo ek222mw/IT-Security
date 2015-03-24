@@ -2,11 +2,13 @@
 	
 	require_once("src/LoginModel.php");
 	require_once("src/LoginView.php");
+	require_once("src/ForumView.php");
 	
 	class LoginController
 	{
 		private $view;
 		private $model;
+		private $forumView;
 		
 		public function __construct()
 		{
@@ -16,6 +18,7 @@
 			// Skapar nya instanser av modell- & vy-klassen.
 			$this->model = new LoginModel($userAgent);
 			$this->view = new LoginView($this->model);
+			$this->forumView = new ForumView($this->model);
 			
 			// Kontrollerar ifall det finns kakor och ifall anv�ndaren inte �r inloggad.
 			if($this->view->searchForCookies() && !$this->model->checkLoginStatus())
@@ -40,7 +43,7 @@
 			{
 				
 				
-				if($this->view->didUserPressCreateNewTopic() && $this->model->checkLoginStatus()){
+				if($this->forumView->didUserPressCreateNewTopic() && $this->model->checkLoginStatus()){
 					$this->doCreateNewTopic();
 					//die();
 				}
@@ -68,7 +71,7 @@
 			{
 				$this->view->showLoginPage();
 			}
-			if($this->model->checkLoginStatus() && !$this->view->searchForCookies() && !$this->view->didUserPressCreateNewTopic())
+			if($this->model->checkLoginStatus() && !$this->view->searchForCookies() && !$this->forumView->didUserPressCreateNewTopic())
 			{
 				echo "12345";
 				$this->view->showLoginPage();
@@ -166,7 +169,7 @@
 			}
 		}
 		public function doCreateNewTopic(){
-			$this->view->showNewTopicForm();
+			$this->forumView->showNewTopicForm();
 		}
 		
 		

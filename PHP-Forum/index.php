@@ -9,9 +9,8 @@
 	// St�ller in sidans format s� att m�nad, �r, tid etc. visas p� svenska.
 	setlocale(LC_ALL , "swedish");
 	
-	
-	require_once("common/HTMLView.php");
-	require_once("src/LoginController.php");
+
+	require_once("src/MasterController.php");
 	
 	$c = new LoginController();
 	$htmlBody = $c->doHTMLBody();
